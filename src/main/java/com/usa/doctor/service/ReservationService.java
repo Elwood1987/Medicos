@@ -1,10 +1,16 @@
 package com.usa.doctor.service;
 
+import com.usa.doctor.model.ClientReport;
 import com.usa.doctor.model.Reservation;
+import com.usa.doctor.model.ReservationReport;
 import com.usa.doctor.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -68,11 +74,11 @@ public class ReservationService {
         return aBoolean;
     }
 
-/*
-    public StatusReservation getReservationStatusReport(){
+
+    public ReservationReport getReservationStatusReport(){
         List<Reservation>completed=reservationRepository.getReservationByStatus("completed");
         List<Reservation>cancelled=reservationRepository.getReservationByStatus("cancelled");
-        return new StatusReservation(completed.size(), cancelled.size());
+        return new ReservationReport(completed.size(), cancelled.size());
     }
 
     public List<Reservation> getReservationPeriod(String dateA, String dateB){
@@ -93,8 +99,7 @@ public class ReservationService {
         }
     }
 
-    public List<CounterClients> getTopClients(){
+    public List<ClientReport> getTopClients(){
         return reservationRepository.getTopClients();
     }
- */
 }

@@ -1,6 +1,8 @@
 package com.usa.doctor.controller;
 
+import com.usa.doctor.model.ClientReport;
 import com.usa.doctor.model.Reservation;
+import com.usa.doctor.model.ReservationReport;
 import com.usa.doctor.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -54,9 +56,9 @@ public class ReservationController {
         return reservationService.deleteReservation(idReservation);
     }
 
-    /*
+
     @GetMapping("/report-status")
-    public StatusReservation getReservationsStatusReport(){
+    public ReservationReport getReservationsStatusReport(){
         return reservationService.getReservationStatusReport();
     }
 
@@ -66,8 +68,7 @@ public class ReservationController {
     }
 
     @GetMapping("/report-clients")
-    public List<CounterClients> getClients() {
+    public List<ClientReport> getClients() {
         return reservationService.getTopClients();
     }
-     */
 }

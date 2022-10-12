@@ -1,10 +1,13 @@
 package com.usa.doctor.repository;
 
+import com.usa.doctor.model.Client;
+import com.usa.doctor.model.ClientReport;
 import com.usa.doctor.model.Reservation;
 import com.usa.doctor.repository.crudrepository.ReservationCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -40,14 +43,14 @@ public class ReservationRepository {
     public List<Reservation> getReservationPeriod (Date a, Date b) {
         return reservationCrudRepository.findAllByStartDateAfterAndStartDateBefore(a, b);
     }
-/*
-    public List<CounterClients> getTopClients() {
-        List<CounterClients> res= new ArrayList<>();
-        List<Object[]>report = reservationCrudRepository.countTotalReservationByClient();
-        for(int i=0;i<report.size();i++){
-            res.add(new CounterClients((Long)report.get(i)[1],(Client) report.get(i)[0]));
+
+    public List<ClientReport> getTopClients() {
+        List<ClientReport> res = new ArrayList<>();
+        List<Object[]> report = reservationCrudRepository.countTotalReservationByClient();
+        for (int i = 0; i < report.size(); i++) {
+            res.add(new ClientReport((Long) report.get(i)[1], (Client) report.get(i)[0]));
         }
         return res;
     }
- */
+
 }
